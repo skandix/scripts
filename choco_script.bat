@@ -1,3 +1,4 @@
+// need to update this so i can use it in "production"
 @echo off
 goto check_Permissions
 
