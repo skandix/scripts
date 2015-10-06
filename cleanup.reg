@@ -1,0 +1,14 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"HideFastUserSwitching"=dword:00000000
+
+
+[HKEY_CURRENt_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"DisableLockWorkstation"=dword:00000000
+"DisableChangePassword"=dword:00000000
+"DisableTaskMgr"=dword:00000000
+
+[HKEY_CURRENt_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoLogoff"=dword:00000000
+"NoClose"=dword:00000000
