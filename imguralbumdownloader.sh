@@ -6,11 +6,9 @@
 echo " "
 echo "===IMGUR ALBUM DOWNLOADER==="
 echo " "
-read
-clear
 echo "type in gallery_url"
 read gallery_url
-clear
+echo " "
 echo "name of folder?"
 read folder_name
 mkdir $folder_name && cd $folder_name
