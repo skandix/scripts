@@ -23,7 +23,7 @@ def motd():
     print ("       __/ |                         ")
     print ("      |___/                          ")
     print (" ")
-    print ("Authors: Bendik Egenes Dyrli (Skandix) \n")
+    print ("Authors: Bendik E.D (Skandix) \n")
 
 def pw_list():
 
