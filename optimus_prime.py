@@ -15,6 +15,7 @@ def is_prime(intake):
 	return all(intake % p for p in xrange(2, intake))
 
 # To Translate the primes to Text
+# Not finished with this..
 def collection(number):
 
 	if number == 2:
