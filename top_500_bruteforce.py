@@ -29,7 +29,7 @@ def pw_list():
 
     os.path.exists("the-top-500-worst-passwords-of-all-time") and os.remove("the-top-500-worst-passwords-of-all-time")
 
-    url = "http://discovery.bakabo.net/dump/the-top-500-worst-passwords-of-all-time"
+    url = "http://www.whatsmypass.com/the-top-500-worst-passwords-of-all-time"
     download = wget.download(url)
     soup = BeautifulSoup(open(download), 'html.parser')
 
