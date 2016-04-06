@@ -1,0 +1,5 @@
+ # Wrapped with strace to keep tail from freeezing, since that's a common error whith only using tail to debugging apps for a long period of time
+ # and then it's nice to wrap it with strace to trace system calls, and then egrep to find filter out date, id, and what user is playing something
+ # Example Output; Apr 05, 2016 21:43:07 [0x7f38727fa700] DEBUG - [Now] User is skandix (ID: 1)
+ # Example Output (Showing that it noticed the log rotation); tail: ‘Plex Media Server.log’ has been replaced;  following end of new file
+ strace -Tt -o /tmp/tail.trace tail --follow=name Plex\ Media\ Server.log | egrep '\[.{0,3}\].[a-zA-Z ]{0,}\(ID. [0-9]{1,8}\)'
