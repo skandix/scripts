@@ -2,8 +2,10 @@ import socket
 import logging
 import time
 
+count=0
 now = time.strftime("%c")
-logging.basicConfig(filename='inetconnectionStatus.log',level=logging.DEBUG)
+logging.basicConfig(filename='inetconnectionStatus.log',level=logging.DEBUG,format='%(asctime)s %(message)s')
+logging.info('Started Logging at %s \n' % now)
 
 def is_connected():
   try:
@@ -18,17 +20,16 @@ def is_connected():
 def main():
   if is_connected() == True:
     logging.info('Connection is present at %s' % now)
-    logging.info(now)
-    logging.info('\n')
-    return "YAY, internet!!!, i can go back to sleep", now
-    time.sleep(1)
+    time.sleep(60)
+    return "Sleeping 60"
+    #return "YAY, internet!!!, i can go back to sleep", now
+
 
   elif is_connected() == False:
     logging.warning("Connection Wasn't present at %s" % now)
-    logging.info(now)
-    logging.info('\n')
-    return "NOOOOO, INTERNET?!?! ", now
-    time.sleep(1)
+    time.sleep(30)
+    return "Sleeping 30"
+    #return "NOOOOO, INTERNET?!?! ", now
 
-while 1:
-  print main()
+while True:
+    print main()
