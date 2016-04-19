@@ -20,7 +20,7 @@ def main(present, npresent):
     logging.info('Connection is present at ')
     time.sleep(present)
 
-  elif is_connected() == False:
+  else:
     logging.warning("Connection Wasn't present at ")
     time.sleep(npresent)
 
