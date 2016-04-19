@@ -25,4 +25,4 @@ def main(present, npresent):
     time.sleep(npresent)
 
 while True:
-    main(30, 10)
+    main(60, 10)
