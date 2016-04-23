@@ -1,7 +1,7 @@
 #Python
 
 ###NetworkLogger.py
-Logs the state of the network to a .log file
+Logs the state of the network on eth0 to a .log file
 __Example Logging__
 
           hippocampus:~/Dev/NetLogg skandix λ tail -f inetconnectionStatus.log 
