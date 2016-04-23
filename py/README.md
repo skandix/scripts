@@ -3,6 +3,7 @@
 ###NetworkLogger.py
 Logs the state of the network to a .log file
 __Example Logging__
+
           hippocampus:~/Dev/NetLogg skandix λ tail -f inetconnectionStatus.log 
           -=Started Logging=- 
            2016-04-23 11:55:53,442
