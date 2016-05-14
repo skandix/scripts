@@ -3,3 +3,6 @@
  # Example Output; Apr 05, 2016 21:43:07 [0x7f38727fa700] DEBUG - [Now] User is skandix (ID: 1)
  # Example Output (Showing that it noticed the log rotation); tail: ‘Plex Media Server.log’ has been replaced;  following end of new file
  strace -Tt -o /tmp/tail.trace tail --follow=name Plex\ Media\ Server.log | egrep '\[.{0,3}\].[a-zA-Z ]{0,}\(ID. [0-9]{1,8}\)'
+ 
+ #For use when i'm sorting my "Dev" Folder
+ read name; mkdir "$name" && mv *."$name" "$name";
