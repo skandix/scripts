@@ -1,5 +1,5 @@
 strace -Tt -o /tmp/tail.trace tail --follow=name Plex\ Media\ Server.log | egrep '\[.{0,3}\].[a-zA-Z ]{0,}\(ID. [0-9]{1,8}\)'
 read name; mkdir "$name" && mv *."$name" "$name";
-for f in {80..1024}; do nc 127.0.0.1 $f; done 
+for f in {80..1024}; do nc -v 127.0.0.1 $f; done 
 
 
