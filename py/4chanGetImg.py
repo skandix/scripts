@@ -3,7 +3,7 @@ import urllib2
 import re
 import wget
 import time
-#import os
+import argparse
 
 def motd():
 
@@ -16,6 +16,7 @@ def motd():
 	print " REGEX GETimg DOWNLOADER \n"
 
 def getImgz(url):
+	motd()
 	black_magic = re.compile(ur'<img[^s]\w+\S+[.png|.jpg|.jpeg]')
 	lol = urllib2.urlopen(url)
 	fagz = lol.read()
@@ -28,6 +29,11 @@ def getImgz(url):
 		print wget.download("http://"+clean)
 	print len(clean)
 
-motd()
-time.sleep(2)
-getImgz("")
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--url")
+args = parser.parse_args()
+
+
+# Takes inn url as --url <insert url>
+getImgz(args.url)
