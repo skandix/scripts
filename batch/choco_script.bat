@@ -67,71 +67,71 @@ ping 127.0.0.1 > nul
 cls
 
 echo installing Chocolatey 0.9.10.3
-choco install chocolatey
+choco install chocolatey -y
 cls
 
 echo installing Google Chrome
-choco install google-chrome-x64
+choco install google-chrome-x64 -y
 
 echo installing mumble
-choco install mumble
+choco install mumble -y
 
 echo installing filezilla
-choco install filezilla
+choco install filezilla -y
 
 echo installing teracopy
-choco install teracopy
+choco install teracopy -y
 
 echo installing puttyTray
-choco install puttyTray
+choco install puttyTray -y
 
 echo installing git
-choco install git
+choco install git -y
 
 echo installing teamspeak3
-choco install teamspeak
+choco install teamspeak -y
 
 echo installing steam
-choco install steam
+choco install steam -y
 
 echo installing uTorrent
-choco install utorrent
+choco install utorrent -y
 
 echo installing battlenet
-choco install battle.net
+choco install battle.net -y
 
 echo installing 7zip
-choco install 7zip
+choco install 7zip -y
 
 echo installing flash player
-choco install flashplayerplugin
+choco install flashplayerplugin -y
 
 echo installing java_7
-choco install javaruntime
+choco install javaruntime -y
 
 echo installing TeamViewer
-choco install teamviewer
+choco install teamviewer -y
 
 echo installing Adobe AIR 
-choco install AdobeAIR
+choco install AdobeAIR -y
 
 echo installing SublimeText3
-choco install SublimeText3
+choco install SublimeText3 -y
 
 echo Installing Wireshark
-choco install wireshark
+choco install wireshark -y
 
 echo installing Greenshot
-choco install greenshot -Version 1.1.9.13
+choco install greenshot -Version 1.1.9.13 -y
 
 echo installing Google drive
-choco install googledrive
+choco install googledrive -y
 
 echo installing Spotify
-choco install spotify
+choco install spotify -y
 
 echo installing f.lux
-choco install f.lux
+choco install f.lux -y
 
 pause
 exit
