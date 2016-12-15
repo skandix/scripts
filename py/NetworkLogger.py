@@ -16,7 +16,7 @@ def is_connected():
   return False
 
 def main(present, npresent):
-  if is_connected() == True:
+  if is_connected():
     logging.info('Connection is present at ')
     time.sleep(present)
 
