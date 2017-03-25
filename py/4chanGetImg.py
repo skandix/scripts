@@ -60,12 +60,8 @@ def getImgz(url):
         elif os.path.exists(urlID):
             os.chdir(urlID)
            
-#        try:
         for j in os.listdir("../"+urlID):
             foundImg.append(j)
-#        except OSError as oserr:
-#            if debugging:
-#                print ("OSError: {0}".format(oserr))
 
 	for i in loot:
                 clean = str(i.replace('File: <a href="//', '').replace('"', ''))
