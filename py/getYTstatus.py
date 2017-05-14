@@ -1,7 +1,10 @@
+#this is used to see if a video is avaliable, since it migth show a 200ok even though the video isn't playable.
+# therefor i wrote this to check the source code for a submessage saying it's not avaliable.. then it's not ok :)
+
 import requests
 import re
 
-def getYTstatus(url):
+def getYTstatus(url): 
         
 	regexp = re.compile(ur'"submessage">[\n]\S+[a-zA-Z .]+')
 	loot = re.findall(regexp, requests.get(url).text)
