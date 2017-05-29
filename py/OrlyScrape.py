@@ -5,12 +5,8 @@ import re
 
 root_site_links = []
 
-#regex
-# href=\"http:\/\/www.oreilly.com\/programming\/free\/\w{3,}.+.csp
-
-def main(url, inputUrl=""):
+def main(url):
     resp = requests.get(url).text
-
 
     root_regex = re.compile(ur'href=\"http:\/\/www.oreilly.com\/programming\/free\/\w{3,}.+.csp')
     loot = re.findall(root_regex, resp)
@@ -25,7 +21,6 @@ def main(url, inputUrl=""):
         nextLoot = re.findall(next_site_regex,sauce)
         for books in nextLoot:
             cleanBook = "files"+books.replace('<!-- path_info: csp/','').replace('.csp','.pdf')
-            #print cleanBook
             
             dlLinks = "http://www.oreilly.com/"+cleanBook
             download = wget.download(dlLinks)
