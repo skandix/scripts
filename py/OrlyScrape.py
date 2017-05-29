@@ -21,8 +21,9 @@ def main(url, inputUrl=""):
         sauce = next_site(links).text
         nextLoot = re.findall(next_site_regex,sauce)
         for books in nextLoot:
-            cleanBook = "files"+books.replace('<!-- path_info: csp/','').replace('.csp','.pdf')
-            name = cleanBook[23:]
+            cleanBook = books.replace('<!-- path_info: csp/','').replace('.csp','.pdf').replace('free', 'free/files')
+            #print cleanBook
+            name = cleanBook[23:].replace('/','')
             dlLinks = "http://www.oreilly.com/"+cleanBook
             stream = requests.get(dlLinks, stream=True)
 
