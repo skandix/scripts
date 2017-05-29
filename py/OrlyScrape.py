@@ -1,11 +1,12 @@
 # quick and dirty script to scrape the books from http://www.oreilly.com/programming/free/
+# pip install requests
 import requests
-import wget
+import shutil
 import re
 
 root_site_links = []
 
-def main(url):
+def main(url, inputUrl=""):
     resp = requests.get(url).text
 
     root_regex = re.compile(ur'href=\"http:\/\/www.oreilly.com\/programming\/free\/\w{3,}.+.csp')
@@ -21,9 +22,12 @@ def main(url):
         nextLoot = re.findall(next_site_regex,sauce)
         for books in nextLoot:
             cleanBook = "files"+books.replace('<!-- path_info: csp/','').replace('.csp','.pdf')
-            
+            name = cleanBook[23:]
             dlLinks = "http://www.oreilly.com/"+cleanBook
-            download = wget.download(dlLinks)
-            print "\t"+download
+            stream = requests.get(dlLinks, stream=True)
+
+            with open(name, 'wb') as file:
+                shutil.copyfileobj(stream.raw, file)
+            print "Downloaded: {0}".format(name)
 
 main("http://www.oreilly.com/programming/free/")
