@@ -7,12 +7,12 @@ choco install filezilla -y
 choco install git -y
 choco install teamspeak -y
 choco install steam -y
-choco install utorrent -y
+choco install utorrent -y --allow-empty-checksums
 choco install battle.net -y --allow-empty-checksums
 choco install 7zip -y
 choco install javaruntime -y
 choco install procmon -y
-choco install teamviewer -y
+choco install teamviewer -y --allow-empty-checksums
 choco install wireshark -y
 choco install spotify -y
 choco install discord -y
