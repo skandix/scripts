@@ -1,3 +1,6 @@
+@echo off 
+md C:\urxvt\keys
+md C:\urxvt\misc
 choco install google-chrome-x64 -y
 choco install mumble -y
 choco install filezilla -y
@@ -21,12 +24,18 @@ choco install vim -y
 choco install github -y
 choco install openvpn -y
 choco install firefox -y
-choco install cygwin -y 
-choco install tor-browser -y
+choco install cygwin -y --allow-empty-checksums
+choco install tor-browser -y --allow-empty-checksums
 choco install windows-tweaker -y
-choco install mpc-hc -y
+choco install mpc-hc -y --allow-empty-checksums
 choco install python2 -y
 choco install keepass -y 
 choco install jrt -y
 choco install hijackthis -y
 choco install sandboxie.install -y
+choco install puttytray -y
+choco install wget -y
+wget https://the.earth.li/~sgtatham/putty/latest/w64/pageant.exe
+move https://the.earth.li/~sgtatham/putty/latest/w64/pageant.exe C:/urxvt/keys
+cd C:/urxvt/keys/
+pageant.exe skandix.ppk
