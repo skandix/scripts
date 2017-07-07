@@ -1,7 +1,8 @@
 # Made this script to make my life easier.
 # instead of using the default album downloader, this does things faster.
 # and it makes me possible to downoad things directly to my server.
-# -Skandix
+# -Skandix (2011)
+
 #!/bin/bash
 echo " "
 echo "===IMGUR ALBUM DOWNLOADER==="
