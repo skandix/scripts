@@ -1,3 +1,4 @@
+:: Used at old workplace for quickly terminating all process when leaving work..
 @echo off
 Echo killing all Programs that have been choosen!
 taskkill /F /IM putty.exe
