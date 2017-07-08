@@ -12,7 +12,7 @@ def FileZize(File, shift, constant):
     return str(os.stat(File).st_size >> shift) +" {:}".format(constant)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog='Size.py', usage='%(prog)s [--size kb|mb|gb] [--file fitte.exe')
+    parser = argparse.ArgumentParser(prog='Size.py', usage='%(prog)s [--size kb|mb|gb] [--file chrome.exe')]
     parser.add_argument("--size", help='displays how big a file is in kb|mb|gb')
     parser.add_argument("--file", help='give me a file')
     args = parser.parse_args()
