@@ -2,7 +2,6 @@
 from sys import platform as _os
 import requests
 import re
-import wget
 import time
 import shutil
 import argparse
