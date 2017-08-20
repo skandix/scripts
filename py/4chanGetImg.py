@@ -4,6 +4,7 @@ import requests
 import re
 import wget
 import time
+import shutil
 import argparse
 import os
 
@@ -26,6 +27,11 @@ def waiting(data):
         print ("{0} {1}".format(data, j))
         time.sleep(0.5)
         clearTerm()
+
+def download(urls):
+    with open(urls[:37], 'wb+') as file:                        
+        shutil.copyfileobj(getStream("/".join(baseUrl.split('/')[:8])+"/"+urls, True).raw, file)
+    return "{:s}".format(urls)
 
 def motd():
         
@@ -81,9 +87,9 @@ def getImgz(url):
                         if debugging:
                             print("Value Error: {0}".format(valueerr))   
                      
-                        print "input wget", clean
-                        print (wget.download("http://"+clean))
-                        print "\n"
+                        with open(img_name, 'wb+') as file:                        
+                            shutil.copyfileobj("http://"+clean).raw, file
+                        return "Downloaded:\t{:s}".format(img_name)
                     
                     else:                        
                         waiting("Checking thread for new Images")
@@ -101,4 +107,3 @@ while resp(args.url).status_code != 404:
     getImgz(args.url)
 
 print ("Thread is Dead, RIP {0}".format(args.url))
-
