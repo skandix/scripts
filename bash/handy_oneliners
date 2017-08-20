@@ -2,3 +2,5 @@ strace -Tt -o /tmp/tail.trace tail --follow=name Plex\ Media\ Server.log | egrep
 read name; mkdir "$name" && mv *."$name" "$name";
 for f in {80..1024}; do nc -v 127.0.0.1 $f; done 
 wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+'
+puttygen key.ppk  -O private-openssh -o id_rsa
+puttygen key.ppk  -O public-openssh -o id_rsa.pub
