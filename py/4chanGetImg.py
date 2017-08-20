@@ -82,7 +82,7 @@ def getImgz(url):
                             print("Value Error: {0}".format(valueerr))   
                      
                         with open(img_name, 'wb+') as file:                        
-                            shutil.copyfileobj("http://"+clean).raw, file
+                            shutil.copyfileobj("http://"+clean.raw, file)
                         return "Downloaded:\t{:s}".format(img_name)
                     
                     else:                        
