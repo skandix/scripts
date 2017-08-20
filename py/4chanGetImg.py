@@ -7,10 +7,13 @@ import shutil
 import argparse
 import os
 
-resp = requests.get
+#resp = requests.get
 foundImg = []
 debugging = True
 workdir = os.getcwd()
+
+def resp(url, strem=False)
+    return requests.get(url, stream=strem)
 
 def clearTerm():
     if _os == "linux" or _os == "linux2" or _os == "cygwin" or _os =="darwin":
@@ -82,7 +85,7 @@ def getImgz(url):
                             print("Value Error: {0}".format(valueerr))   
                      
                         with open(img_name, 'wb+') as file:                        
-                            shutil.copyfileobj("http://"+clean.raw, file)
+                            shutil.copyfileobj(resp("http://"+clean.raw, True).raw, file)
                         return "Downloaded:\t{:s}".format(img_name)
                     
                     else:                        
