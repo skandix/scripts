@@ -12,7 +12,7 @@ foundImg = []
 debugging = True
 workdir = os.getcwd()
 
-def resp(url, strem=False)
+def resp(url, strem=False):
     return requests.get(url, stream=strem)
 
 def clearTerm():
