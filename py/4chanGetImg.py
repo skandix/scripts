@@ -101,3 +101,4 @@ while resp(args.url).status_code != 404:
     getImgz(args.url)
 
 print ("Thread is Dead, RIP {0}".format(args.url))
+
