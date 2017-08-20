@@ -28,11 +28,6 @@ def waiting(data):
         time.sleep(0.5)
         clearTerm()
 
-def download(urls):
-    with open(urls[:37], 'wb+') as file:                        
-        shutil.copyfileobj(getStream("/".join(baseUrl.split('/')[:8])+"/"+urls, True).raw, file)
-    return "{:s}".format(urls)
-
 def motd():
         
 	print " _  _     ___ _                 "
