@@ -1,6 +1,11 @@
+##			     ##
+# pip install isbnlib requets #
+##			     ##	
+
 import re
 import time
 import shutil
+import isbnlib 
 import requests
 
 searchTerm = '?facet-discipline=%22Computer+Science%22&facet-content-type=%22Book%22"'
@@ -30,29 +35,33 @@ def getUrls(url):
 
 	loot = re.findall(re.compile(ur'href=\"/book/([\d./-]+)\"'),source)
 	for urls in loot:
-		dl = baseDL+urls+".pdf"
+		dl = baseDL+urls
 		if dl not in dlUrl:
 			dlUrl.append(dl)
 
-def download():
+def getBookTitle(isbn):
+	isbn = isbn.replace('-','')
+	book = isbnlib.meta(isbn)
+	return book['Title']
 
+def download():
 	endUrl = url.split('/')[4]
 	startUrl = 'https://link.springer.com/search/'
 	fullRange = result(url)+1
 
-	#gets all pdf links over the n range...
 	for ith in range(1, 10):
 		nUrl = "{0}page/{1}{2}".format(startUrl, ith, endUrl)
 		getUrls(nUrl)
 
 	for pdfLink in dlUrl:
-		name = pdfLink.split('/')[-1]
+		try:
+			name = getBookTitle(pdfLink.split('/')[-1])+".pdf"
+		except TypeError as e:
+			continue
 		stream = getStream(pdfLink, strem=True)
 		start = time.time()
 
 		with open(name, 'wb') as file:
 			shutil.copyfileobj(stream.raw, file)
 		print "Downloaded: {0}\t Seconds: {1:4f}".format(name,(time.time()-start))
-
-
 download()
