@@ -1,14 +1,12 @@
-##			     ##
-# pip install isbnlib requets #
-##			     ##	
-
+# -*- coding: utf-8 -*-
+# pip install isbnlib requests
 import re
+import os
 import time
 import shutil
 import isbnlib 
 import requests
 
-searchTerm = '?facet-discipline=%22Computer+Science%22&facet-content-type=%22Book%22"'
 baseDL = "https://link.springer.com/content/pdf/"
 url = 'https://link.springer.com/search/?facet-discipline="Computer+Science"&facet-content-type="Book"'
 dlUrl = []
@@ -44,24 +42,45 @@ def getBookTitle(isbn):
 	book = isbnlib.meta(isbn)
 	return book['Title']
 
-def download():
+def indexingLinks(pages):
 	endUrl = url.split('/')[4]
 	startUrl = 'https://link.springer.com/search/'
-	fullRange = result(url)+1
+	# you don't want to use this, this will rip the whole search term result
+	#fullRange = result(url)+1
 
-	for ith in range(1, 10):
+	for ith in range(1, pages):
 		nUrl = "{0}page/{1}{2}".format(startUrl, ith, endUrl)
 		getUrls(nUrl)
+	return "\nFound\n{} Books \nOn {} pages".format(len(dlUrl), ith)
 
+def download():
 	for pdfLink in dlUrl:
 		try:
 			name = getBookTitle(pdfLink.split('/')[-1])+".pdf"
+
+			if name is ".pdf":
+				print "found invalid isbn"
+				break
+
 		except TypeError as e:
 			continue
+
 		stream = getStream(pdfLink, strem=True)
 		start = time.time()
 
-		with open(name, 'wb') as file:
-			shutil.copyfileobj(stream.raw, file)
-		print "Downloaded: {0}\t Seconds: {1:4f}".format(name,(time.time()-start))
-download()
+		try:
+			with open(name, 'wb') as file:
+				shutil.copyfileobj(stream.raw, file)
+			print "Downloaded: {0}\t\t Seconds: {1:4f}".format(name,(time.time()-start))
+		except UnicodeEncodeError as e:
+			#fixing this later
+			print "this is triggering an error\n",name
+
+if __name__ == '__main__':
+	try:
+		print indexingLinks(10)
+		download()
+	
+	except KeyboardInterrupt as e:
+		print "Detected CTRL+C\n ABORTING MISSION!"
+		print len(dlUrl)
