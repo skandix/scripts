@@ -11,6 +11,12 @@ Used to upload screenshot to my server,
 ```bash
 name=$(cat /proc/sys/kernel/random/uuid).jpg;import $name;scp -q $name loot:/var/www/html/loot;echo http://datapor.no/loot/$name | xclip;
 ```
+
+get the uniq import in .py files, due to people not making requirements.txt files, one have to do this ;_;
+```bash
+for k in $(grep -r "import" | cut -d' ' -f2 | sort --unique);do pip install  $k;done;
+```
+
 other
 ```bash
 wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+'
