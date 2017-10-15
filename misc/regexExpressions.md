@@ -4,4 +4,5 @@ ur'<\w{3}\ssrc\S+')
 ur'File: <a href[^s]\S+'
 ur'"submessage">[\n]\S+[a-zA-Z .]+'
 ur'\/watch.[v=]+[^+]{11}'
+ur'(?:\/watch.([v=]+[^+]{11})|youtu.be/([^+]{11}))'
 ```
