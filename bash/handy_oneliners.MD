@@ -22,4 +22,5 @@ other
 wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+'
 puttygen key.ppk  -O private-openssh -o id_rsa
 puttygen key.ppk  -O public-openssh -o id_rsa.pub
+boolivar=$1;docker="docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build "; if [ "$boolivar" = True ];then echo $docker"-d";else echo $docker;fi
 ```
