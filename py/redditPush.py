@@ -1,8 +1,6 @@
-from time import sleep
 import requests
 import praw
 import json
-import re
 
 def postWebhook(msg):
 
