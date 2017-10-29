@@ -1,26 +1,37 @@
+from time import sleep
+import requests
 import praw
-from pushbullet import Pushbullet
+import json
 import re
-import time
 
-pb = Pushbullet("")
-regexp = re.compile(ur'.[\[O]][a-zA-Z0-9 .]{3,}')
-r = praw.Reddit(user_agent='PBUSNTINVNOTIF')
-submissions = r.get_subreddit('UsenetInvites').get_new(limit=1)
+def postWebhook(msg):
 
-def main(zTime=1):
-	foo = [str(x) for x in submissions]
-	loot = re.findall(regexp, str(foo))
-	for i in loot:
-		if loot != None:
-			print i
-			print "Pushing To Pushbullet \n"
-			pb.push_note("NEW INVITE FETCHED!", i)
-			main()
-			
-	if len(loot) == 0:
-		print ("No Invites Found :(\n Checking Back in 30min")
-		time.sleep(zTime*60)
-		main()
+    discord_url = "https://discordapp.com/api/webhooks/374301350961348619/Tls23TCT2y115XnCJ0ciSFC90LJoevQXYzsrQLEWUX_Ot80MvsQLcYIZRLTBP9EVta-l"
 
-main()
+    headers = {
+        'User-Agent': 'usenetinvite',
+        'Content-Type': 'application/json',
+    }
+
+    hooker = {
+        'content': msg
+    }
+
+    msg = json.dumps(hooker)
+    res = requests.post(url=discord_url, data=msg, headers=headers)
+
+    return res
+
+def reddit(thread):
+    r = praw.Reddit(client_id=""
+                    ,client_secret=""
+                    ,user_agent="usenetNotif")
+    sub = r.subreddit(thread)
+    for k in sub.new():
+        if "[O]" in  k.title:
+            msg = "\nTitle: {0:s}\nURL: {1:s}".format(k.title, k.url)
+            postWebhook(msg)
+
+reddit('UsenetInvites')
+
+
