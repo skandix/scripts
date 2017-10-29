@@ -3,7 +3,7 @@ from pushbullet import Pushbullet
 import re
 import time
 
-pb = Pushbullet("o.iilHaD8G8n5ztIjD4vefuuFLFv8YDqfG")
+pb = Pushbullet("")
 regexp = re.compile(ur'.[\[O]][a-zA-Z0-9 .]{3,}')
 r = praw.Reddit(user_agent='PBUSNTINVNOTIF')
 submissions = r.get_subreddit('UsenetInvites').get_new(limit=1)
