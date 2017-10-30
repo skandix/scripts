@@ -4,7 +4,7 @@ import json
 
 def postWebhook(msg):
 
-    discord_url = "https://discordapp.com/api/webhooks/374301350961348619/Tls23TCT2y115XnCJ0ciSFC90LJoevQXYzsrQLEWUX_Ot80MvsQLcYIZRLTBP9EVta-l"
+    discord_url = "<Webook>"
 
     headers = {
         'User-Agent': 'usenetinvite',
