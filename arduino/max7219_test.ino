@@ -1,3 +1,5 @@
+//live demo; https://www.youtube.com/watch?v=_XKi5x-7HK4
+
 #include <Arduino.h>
 #include "LedControl.h"
 
