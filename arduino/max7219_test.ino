@@ -102,8 +102,7 @@ void scanning(){
     }
   } 
 }
-void random(){
-  int kkona = random(1,8);
+void rng(){
  for(int k=0;k<8;k++){
   for(int i=0;i<8;i++){ 
     delay(5);
@@ -151,7 +150,7 @@ void seq(int speed, bool invertedOut){
 void loop(){ 
   seq(3, true);
   delay(5);
-  random();
+  rng();
   delay(5);
   scanning();
   delay(5);
