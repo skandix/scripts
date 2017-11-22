@@ -37,3 +37,4 @@ if __name__ == '__main__':
 				pass
 	else:
 		exit(127)
+#only works on windows atm.. fixing linux later..kek
