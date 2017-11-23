@@ -3,12 +3,13 @@ from shutil import copyfile
 from time import strftime
 from sys import exit
 
-import argparse
+import platform
+#import argparse
 import glob
 import os
 
-TV = "/mnt/TV"
-
+TV = "Y:\\"
+EXT = ".mkv"
 
 def today(date):
 	# checking the todays date with the given files date
@@ -24,17 +25,16 @@ def formatFile(path):
 	return ("{0:s} {1:s}".format(date, year))
 
 if __name__ == '__main__':
-	parser = argparse.ArgumentParser(prog='EditedToday.py', usage='%(prog)s [--path /mnt/TV] [--ext .mkv')
-	parser.add_argument("--path", help='the path to the folder')
-	parser.add_argument("--ext", help='extension to look for')
-	args = parser.parse_args()
-
-	if args.path and args.ext:
-		for filePath in glob.glob("{0}*\*\*{1}".format(args.path, args.ext)):
+	if platform.system() in "Windows":
+		for filePath in glob.glob("{0}*\*\*{1}".format(TV, EXT)):
 			if today(formatFile(filePath)):
 				print filePath.split('\\')[3]
 			else:
+				pass		
+
+	elif platform.system() in "Linux":
+		for filePath in glob.glob("{0}*/*/*{1}".format(TV, EXT)):
+			if today(formatFile(filePath)):
+				print filePath.split('/')[4]
+			else:
 				pass
-	else:
-		exit(127)
-#only works on windows atm.. fixing linux later..kek
