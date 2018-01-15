@@ -11,6 +11,11 @@ Used to upload screenshot to my server,
 ```bash
 name=$(cat /proc/sys/kernel/random/uuid).jpg;import $name;scp -q $name loot:/var/www/html/loot;echo http://datapor.no/loot/$name | xclip;
 ```
+Used to upload any kind of file to 
+```bash
+uname=$(cat /proc/sys/kernel/random/uuid);ext=${1#*.};obfusc="$uname.$ext";mv $1 $obfusc;scp -q $obfusc loot:/var/www/html/loot;echo https://loot.datapor.no/$obfusc | xclip;rm $obfusc -f;
+```
+
 
 get the uniq import in .py files, due to people not making requirements.txt files, one have to do this ;_;
 ```bash
