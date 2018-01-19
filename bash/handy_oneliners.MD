@@ -22,6 +22,11 @@ get the uniq import in .py files, due to people not making requirements.txt file
 for k in $(grep -r "import" | cut -d' ' -f2 | sort --unique);do pip install  $k;done;
 ```
 
+get uniq ips from fail2ban logs and somewhat get the needed info with regex and whois
+```bash
+for k in $(cat fail2ban.log | cut -d' ' -f 19 | uniq | strings | egrep [0-9]+); do echo ; whois $k -H | egrep "(netname|descr|person|country|route)";echo ;done;
+```
+
 other
 ```bash
 wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+'
