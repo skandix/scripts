@@ -27,6 +27,11 @@ get uniq ips from fail2ban logs and somewhat get the needed info with regex and 
 for k in $(cat fail2ban.log | cut -d' ' -f 19 | uniq | strings | egrep [0-9]+); do echo ; whois $k -H | egrep "(netname|descr|person|country|route)";echo ;done;
 ```
 
+Find all the present gpu's in a machine and pipe that to find the iommu group of the gpu's.
+```bash
+find /sys/kernel/iommu_groups/ -type l | grep "$(lspci -nn | grep VGA | cut -d':' -f1)"
+```
+
 other
 ```bash
 wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+'
