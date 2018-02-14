@@ -8,7 +8,8 @@ import isbnlib
 import requests
 
 baseDL = "https://link.springer.com/content/pdf/"
-url = 'https://link.springer.com/search/?facet-discipline="Computer+Science"&facet-content-type="Book"'
+#url = 'https://link.springer.com/search/?facet-discipline="Computer+Science"&facet-content-type="Book"'
+url = 'https://link.springer.com/search?facet-discipline=%22Computer+Science%22&facet-content-type=%22Book%22&query=security'
 dlUrl = []
 
 # gets link data
@@ -43,7 +44,10 @@ def getBookTitle(isbn):
 	return book['Title']
 
 def indexingLinks(pages):
-	endUrl = url.split('/')[4]
+	try:
+		endUrl = url.split('/')[4]
+	except IndexError as e:
+		endUrl = url.split('/')[3]
 	startUrl = 'https://link.springer.com/search/'
 	# you don't want to use this, this will rip the whole search term result
 	#fullRange = result(url)+1
@@ -54,10 +58,12 @@ def indexingLinks(pages):
 	return "\nFound\n{} Books \nOn {} pages".format(len(dlUrl), ith)
 
 def download():
+
 	for pdfLink in dlUrl:
 		try:
-			name = getBookTitle(pdfLink.split('/')[-1])+".pdf"
-
+			print pdfLink
+			dirtyName = getBookTitle(pdfLink.split('/')[-1])+".pdf"
+			name = re.sub(r'([,/\\&!\"#%&/()=? ])', '',dirtyName)
 			if name is ".pdf":
 				print "found invalid isbn"
 				break
