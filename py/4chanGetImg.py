@@ -28,7 +28,7 @@ def waiting(data):
         clearTerm()
 
 def motd():
-        
+       
 	print " _  _     ___ _                 "
 	print "| || |   / __\ |__   __ _ _ __  "
 	print "| || |_ / /  | '_ \ / _` | '_ \ "
