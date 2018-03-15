@@ -1,4 +1,5 @@
 @echo off 
+start powershell -Command {Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))}
 md C:\urxvt\keys
 md C:\urxvt\misc
 choco install 7zip -y
