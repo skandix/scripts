@@ -16,6 +16,10 @@ Used to upload any kind of file to
 uname=$(cat /proc/sys/kernel/random/uuid);ext=${1#*.};obfusc="$uname.$ext";mv $1 $obfusc;scp -q $obfusc loot:/var/www/html/loot;echo https://loot.datapor.no/$obfusc | xclip;rm $obfusc -f;
 ```
 
+check a dockers external ip is still on a tigervpn network with reverse ip
+```bash
+ext_ip=$(docker exec -it transmission /bin/sh -c "wget -qO- http://ipecho.net/plain"); rev_ip_chk=$(host $ext_ip | cut -d' ' -f 5);if [ $rev_ip_chk != "customer.tigerbackbone.com" ];then echo "All good\n$rev_ip_chk" ;else docker stop transmission -q;fi
+```
 
 get the uniq import in .py files, due to people not making requirements.txt files, one have to do this ;_;
 ```bash
