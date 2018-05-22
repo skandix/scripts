@@ -30,12 +30,12 @@ choco install telegram -y
 choco install veracrypt -y
 choco install windows-tweaker -y
 choco install wireshark -y
-choco install utorrent -y --ignore-checksums
 choco install steam -y
 choco install tor-browser -y --ignore-checksums
 choco install puttytray -y
 choco install wget -y
 wget https://the.earth.li/~sgtatham/putty/latest/w64/pageant.exe
+wget https://loot.datapor.no/dzikvy9v.zip
 move https://the.earth.li/~sgtatham/putty/latest/w64/pageant.exe C:/urxvt/keys
 cd C:/urxvt/keys/
 pageant.exe skandix.ppk
