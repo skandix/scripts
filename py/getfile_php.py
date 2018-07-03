@@ -31,4 +31,4 @@ def findFiles(url):
 			pass
 
 if __name__ == '__main__':
-	findFiles("https://www.palmesus.com/getfile.php/")
+	findFiles("")
