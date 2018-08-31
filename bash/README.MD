@@ -1,3 +1,4 @@
+# HandyOneliners 
 Showing who's streaming what from my plex and when.
 ```bash
 strace -Tt -o /tmp/tail.trace tail --follow=name Plex\ Media\ Server.log | egrep '\[.{0,3}\].[a-zA-Z ]{0,}\(ID. [0-9]{1,8}\)'
@@ -44,4 +45,5 @@ puttygen key.ppk  -O public-openssh -o id_rsa.pub
 boolivar=$1;docker="docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build "; if [ "$boolivar" = True ];then echo $docker"-d";else echo $docker;fi
 ffmpeg -i in.mp4 -vn -acodec libmp3lame -ac 2 -ab 160k -ar 48000 out.mp3
 find -type d -print0 | xargs -0 chmod -c 775 && find -type f -print0 | xargs -0 chmod -c 664
+ sudo certbot certonly --standalone-d kek.example.com --pre-hook "service nginx stop" --post-hook "service nginx start"
 ```
