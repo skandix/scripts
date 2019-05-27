@@ -14,7 +14,6 @@ NumpadEnter::
 Send {Volume_Mute}
 return
 
-
 NumpadSub::
 Send {Volume_Down}
 return
