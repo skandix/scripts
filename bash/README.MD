@@ -46,4 +46,5 @@ boolivar=$1;docker="docker-compose -f docker-compose.yml -f docker-compose.overr
 ffmpeg -i in.mp4 -vn -acodec libmp3lame -ac 2 -ab 160k -ar 48000 out.mp3
 find -type d -print0 | xargs -0 chmod -c 775 && find -type f -print0 | xargs -0 chmod -c 664
  sudo certbot certonly --standalone-d kek.example.com --pre-hook "service nginx stop" --post-hook "service nginx start"
+sudo dd if=something.iso of=/dev/sdX bs=1M status=progress oflag=sync
 ```
