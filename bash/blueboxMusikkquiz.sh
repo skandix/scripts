@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-docker run --rm -it -v $(pwd):/music ritiek/spotify-downloader:latest -p $1
+pip3 install --upgrade youtube-dl
+docker run --rm  pip3 install --upgrade youtube-dl-it -v $(pwd):/music ritiek/spotify-downloader:latest -p $1
 list=$(ls | grep .txt | head -n 1)
 FOLDERNAME="${list%%.*}"
 mkdir "$FOLDERNAME"
