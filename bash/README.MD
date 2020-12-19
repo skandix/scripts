@@ -34,6 +34,11 @@ for k in $(cat fail2ban.log | cut -d' ' -f 19 | uniq | strings | egrep [0-9]+); 
 find /sys/kernel/iommu_groups/ -type l | grep "$(lspci -nn | grep VGA | cut -d':' -f1)"
 ```
 
+get active interface
+```bash
+nmcli connection show | sed -n 2p | awk '{ print $6 }'
+```
+
 ### other
 ```bash
 wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+'
