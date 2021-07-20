@@ -28,7 +28,7 @@ def waiting(data):
         clearTerm()
 
 def motd():
-       
+
 	print " _  _     ___ _                 "
 	print "| || |   / __\ |__   __ _ _ __  "
 	print "| || |_ / /  | '_ \ / _` | '_ \ "
@@ -40,56 +40,56 @@ def motd():
 def getImgz(url):
 
         id_reg = re.compile(ur'\/([0-9]+)')
-        loot1 = re.findall(id_reg, url) 
+        loot1 = re.findall(id_reg, url)
         tmp_urlID = str(loot1)
         urlID = tmp_urlID[2:-2]
 
-        black_magic = re.compile(ur'File: <a href[^s]\S+')                    
+        black_magic = re.compile(ur'File: <a href[^s]\S+')
         lol = resp(url).text
 	loot = re.findall(black_magic, lol)
-        
+
         if not os.path.exists(urlID) or os.path.exists("../"+urlID):
             try:
                 os.mkdir(urlID)
             except OSError as oserr_mkdir:
                 if debugging:
                     print ("OS Error: {0}".format(oserr_mkdir))
-            else:   
+            else:
                 os.chdir(urlID)
 
         elif os.path.exists(urlID):
             os.chdir(urlID)
-           
+
         for j in os.listdir("../"+urlID):
             foundImg.append(j)
 
 	for i in loot:
                 clean = str(i.replace('File: <a href="//', '').replace('"', ''))
 
-		if clean.count("unknown"):                
+		if clean.count("unknown"):
                     print ("bad img, not downloading")
                 else:
-                   
-                    try:  
+
+                    try:
                         img_reg = re.compile(ur'\/\d+\S+')
                         loot2 = re.findall(img_reg, clean)
                         tmp_img_name = str(loot2)
                         img_name = tmp_img_name[3:-2]
                         print img_name
                         foundImg.index(img_name)
-                    except ValueError as valueerr:           
+                    except ValueError as valueerr:
                         if debugging:
-                            print("Value Error: {0}".format(valueerr))   
-                     
+                            print("Value Error: {0}".format(valueerr))
+
                         print "input wget", clean
                         print (wget.download("http://"+clean))
                         print "\n"
-                    
-                    else:                        
+
+                    else:
                         waiting("Checking thread for new Images")
 
         os.chdir(workdir)
-        if debugging:            
+        if debugging:
         	print "len(clean)",  len(clean)
 
 parser = argparse.ArgumentParser()

@@ -74,7 +74,7 @@ def bruteforce(userName, hostName):
               sleep(1)
               print ("Hacking Finished")
               break
-              
+
 motd()
 pw_list()
 bruteforce("group4", "10.0.0.50")

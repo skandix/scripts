@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 show_menu(){
     NORMAL=`echo "\033[m"`
     MENU=`echo "\033[36m"` #Blue

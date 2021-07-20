@@ -4,8 +4,8 @@
 import requests
 import re
 
-def getYTstatus(url): 
-        
+def getYTstatus(url):
+
 	regexp = re.compile(ur'"submessage">[\n]\S+[a-zA-Z .]+')
 	loot = re.findall(regexp, requests.get(url).text)
 	if loot:

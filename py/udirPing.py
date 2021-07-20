@@ -1,7 +1,7 @@
 import pyping
 import csv
 import datetime
-import argparse 
+import argparse
 import time as tz
 
 # USAGE
@@ -17,20 +17,20 @@ def _ping(address, dump, irange=255):
         write = csv.DictWriter(csvfile, fieldnames=felten)
         write.writeheader()
         tot = tz.time()
-    
+
         for j in xrange(1, irange):
                 start = tz.time()
                 clean =  address.split(".")
                 loot = "{}.{}.{}.{}".format(clean[0], clean[1], clean[2], j)
                 ping = pyping.ping(loot, timeout=3, count=2)
-    
+
                 if ping.ret_code == 0:
                     write.writerow({'IP': loot, 'state':"Online"})
                     print ping.destination
-            
+
                 else:
                     pass
-    
+
     print "Total",  tz.time() - tot,  "seconds"
 
 parser = argparse.ArgumentParser()

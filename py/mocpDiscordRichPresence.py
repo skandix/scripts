@@ -17,7 +17,7 @@ def discoPresence(client_id):
             rate = moc.get_info_dict()['rate']
             file = moc.get_info_dict()['file'].split('/')[-1]
             ext = file.split('.')[-1]
-            
+
             if artist != "":
                 print(RPC.update(details="Playing {:} - {:}".format(artist, track), state="{:} | {:} | {:}".format(bitrate, rate, ext)))
                 sleep(5)

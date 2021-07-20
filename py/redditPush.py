@@ -1,5 +1,3 @@
-#https://github.com/skandix/ListentoThisSite/blob/dca35fcd0d13f65c597fb16f388ce315f7728a42/modules/reddit.py#L62-L76
-# Use oysteins method to store post id's in files.. #ggez
 import requests
 import praw
 import json

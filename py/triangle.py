@@ -3,14 +3,14 @@ import random
 
 class triangle:
 	def __init__(self):
-		self.vert = pyglet.graphics.vertex_list(3, 
-	('v3f', [-0.5, -0.5, 0.0, 
-			  0.5, -0.5, 0.0, 
+		self.vert = pyglet.graphics.vertex_list(3,
+	('v3f', [-0.5, -0.5, 0.0,
+			  0.5, -0.5, 0.0,
 			  0.0, 0.5, 0.5,]),
-	
 
-	('c3b', [random.randint(0,255),random.randint(0,255),random.randint(0,255), 
-			 random.randint(0,255),random.randint(0,255),random.randint(0,255), 
+
+	('c3b', [random.randint(0,255),random.randint(0,255),random.randint(0,255),
+			 random.randint(0,255),random.randint(0,255),random.randint(0,255),
 			 random.randint(0,255),random.randint(0,255),random.randint(0,255)]))
 
 class rootWindow(pyglet.window.Window):

@@ -1,7 +1,4 @@
-@echo off 
-md C:\Games\
-md D:\Games\
-md D:\wg\
+@echo off
 choco install bitwarden -y
 choco install firefox -y
 choco install discord -y

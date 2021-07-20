@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env sh
 find . -iname '*.mp3' -exec sh -c 'curfname="{}";\
 length=`mp3info -p "%m" "$curfname" 2>&1`; \
 errors=`mp3info -p "%b" "$curfname" 2>&1`; \

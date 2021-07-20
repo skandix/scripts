@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# this module is used to scrape ids from youtube playlists.... 
+# this module is used to scrape ids from youtube playlists....
 import re
 import requests
 
@@ -12,7 +12,7 @@ def getHTML(url):
 def getID(url, s=""):
 	regex = re.compile(r'\/watch.[v=]+[^+]{11}')
 	loot = re.findall(regex, getHTML(url))
-	
+
         for i in loot:
 		clean = i.replace('/watch?v=', '')
 		onlyid.append(clean)
