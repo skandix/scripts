@@ -21,4 +21,5 @@ sudo dd if=something.iso of=/dev/sdX bs=1M status=progress oflag=sync
 exiftool -all= filename
 sudo losetup -f -P <img_file>
 sudo mount /dev/loop0 /mnt/tape
+sudo ntfsfix -d /dev/your_device  
 ```
