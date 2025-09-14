@@ -22,4 +22,5 @@ exiftool -all= filename
 sudo losetup -f -P <img_file>
 sudo mount /dev/loop0 /mnt/tape
 sudo ntfsfix -d /dev/your_device  
+find . -type d -name "writeup" -exec vim {}/README.md \;
 ```
